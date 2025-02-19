@@ -6,6 +6,7 @@ import javax.swing.JRadioButton;
 public class Sintaxis_radio {
     public static void main(String[] args) {
         Marco m1 = new Marco();
+        m1.setVisible(true);
         
         
     }

@@ -1,4 +1,7 @@
 import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -6,6 +9,7 @@ public class Ejemplo_radio {
 
     public static void main(String[] args) {
         MarcoRadio m1 = new MarcoRadio();
+        m1.setVisible(true);
         
     }
 
@@ -28,16 +32,22 @@ class MarcoRadio extends JFrame{
 class LaminaRadio extends JPanel{
     public LaminaRadio(){
         setLayout(new BorderLayout());
-        texto = new JLabel("En un lugar de la mancha...");
+        texto = new JLabel("En un lugar de la mancha de cuyo nombre...");
         add(texto,BorderLayout.CENTER);
         ButtonGroup miGrupo = new ButtonGroup();
 
-        JRadioButton b1 = new JRadioButton("Pequeño",false);
-        JRadioButton b2 = new JRadioButton("Mediano",true);
-        JRadioButton b3 = new JRadioButton("Grande",false);
+         b1 = new JRadioButton("Pequeño",false);
+         b2 = new JRadioButton("Mediano",true);
+         b3 = new JRadioButton("Grande",false);
 
-        JRadioButton b4 = new JRadioButton("Muy Grande",false);
+         b4 = new JRadioButton("Muy Grande",false);
+        JPanel lamina_Radio = new JPanel();
 
+        evento_radio mievento = new evento_radio();
+        b1.addActionListener(mievento);
+        b2.addActionListener(mievento);
+        b3.addActionListener(mievento);
+        b4.addActionListener(mievento);
 
         miGrupo.add(b1);
         miGrupo.add(b2);
@@ -45,7 +55,6 @@ class LaminaRadio extends JPanel{
         miGrupo.add(b4);
 
 
-        JPanel lamina_Radio = new JPanel();
         lamina_Radio.add(b1);
         lamina_Radio.add(b2);
         lamina_Radio.add(b3);
@@ -55,6 +64,32 @@ class LaminaRadio extends JPanel{
 
 
     }
+
+    private class evento_radio implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(e.getSource()==b1){
+
+                texto.setFont(new Font("Serif",Font.PLAIN,10));
+            }else if (e.getSource()==b2) {
+                texto.setFont(new Font("Serif",Font.PLAIN,12));
+
+                
+            }else if (e.getSource()==b3) {
+                texto.setFont(new Font("Serif",Font.PLAIN,14));
+
+                
+            }
+            else if (e.getSource()==b4) {
+                texto.setFont(new Font("Serif",Font.PLAIN,24));
+
+                
+            }
+
+        }
+
+    }
     private JLabel texto;
-    private JRadioButton b1,b2,b3;
+    private JRadioButton b1,b2,b3,b4;
 }
