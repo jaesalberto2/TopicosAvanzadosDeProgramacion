@@ -8,6 +8,7 @@ public class PruebaCombo {
 
     public static void main(String[] args) {
         Marco m1 = new Marco();
+        m1.setVisible(true);
         
     }
 
@@ -34,8 +35,9 @@ class Lamina extends JPanel{
         texto.setFont(new Font("Serif",Font.PLAIN,18));
         add(texto,BorderLayout.CENTER);
         JPanel laminaNorte = new JPanel();
-        miCombo = new JComboBox();
+        miCombo = new JComboBox<String>();
         miCombo.setEditable(true);
+        
         miCombo.addItem("Serif");
         miCombo.addItem("SansSerif");
         miCombo.addItem("Monospaced");
@@ -59,5 +61,5 @@ class Lamina extends JPanel{
 
     }
     private JLabel texto;
-    private JComboBox miCombo;
+    private JComboBox<String> miCombo;
 }

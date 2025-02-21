@@ -29,10 +29,11 @@ public class OperacionesArchivo {
                 escribir.close();
             }
             
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al crear el archivo", null, 0);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al crear el archivo", null, 0);
+            }
         }
-
+    
         public static ArrayList<Alumno> abrir(){
             ArrayList<Alumno> lstAlumnos= new ArrayList<Alumno>();
             ObjectInputStream leer = null;
@@ -81,4 +82,4 @@ public class OperacionesArchivo {
 
     
 
-}
+
