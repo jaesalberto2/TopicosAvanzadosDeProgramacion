@@ -29,8 +29,18 @@ class Lamina_spinner extends JPanel{
     public Lamina_spinner(){
         //JTextArea texto = new JTextArea("En un lugar de la mancha de cuyo nombre no quiero acordarme...");
 
-        String lista[]= GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
-        JSpinner control = new JSpinner(new SpinnerNumberModel(5, 0, 10,1));
+        //String lista[]= GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+        JSpinner control = new JSpinner(new SpinnerNumberModel(5,0,10,1){
+                public Object getNextValue(){
+            return super.getPreviousValue();
+
+
+        }
+        public Object getPreviousValue() {
+            return super.getNextValue();
+        }
+    
+        });
         Dimension d = new Dimension(200,20);
 
         control.setPreferredSize(d);
@@ -39,4 +49,20 @@ class Lamina_spinner extends JPanel{
         add(control);
 
     }
+    // private class MiModeloJspinner extends SpinnerNumberModel{
+    //     public MiModeloJspinner(){
+    //         super(5,0,10,1);
+
+
+    //     }
+    //     public Object getNextValue(){
+    //         return super.getPreviousValue();
+
+
+    //     }
+    //     public Object getPreviousValue() {
+    //         return super.getNextValue();
+    //     }
+    // }
 }
+
